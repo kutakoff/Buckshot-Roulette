@@ -20,6 +20,8 @@ public class Main {
     public static int playerHP = getRandomHP();
     public static int dealerHP = playerHP;
 
+    public static int slotNumber;
+
     public static void main(String[] args) throws InterruptedException {
         Scanner scanner = new Scanner(System.in);
 
@@ -28,7 +30,7 @@ public class Main {
         printHPCount();
         while (playerHP > 0 && dealerHP > 0) {
             int bulletCount = getBulletsCount();
-            int slotNumber = 0;
+            slotNumber = 0;
             ArrayList<Integer> deathBullets = getDeathBullets(bulletCount);
             System.out.println("\nStart's new round");
             System.out.printf("There are %d live cartridge bullets and %d blank cartridge bullets.\n", deathBullets.size(), bulletCount - deathBullets.size());
@@ -38,7 +40,7 @@ public class Main {
                 }
                 System.out.printf("\nThere are %d/%d bullets left \n", bulletCount - slotNumber, bulletCount);
                 slotNumber++;
-            } while (Player.checkPlayerTurn(bulletCount, deathBullets, slotNumber, Player.getPlayerAction())); //return true - игра продолжается. return false - dealerHP = 0 || player HP == 0 || кол-во оставшихся патрон = 0
+            } while (Player.checkPlayerTurn(bulletCount, deathBullets, Player.getPlayerAction())); //return true - игра продолжается. return false - dealerHP = 0 || player HP == 0 || кол-во оставшихся патрон = 0
         }
         printResult();
     }

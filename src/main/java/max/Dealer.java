@@ -8,7 +8,7 @@ import static max.Main.*;
 
 public class Dealer {
 
-    public static boolean checkDealerTurn(int slotNumber, ArrayList<Integer> deathBullets, String dealerAction) {
+    public static boolean checkDealerTurn(ArrayList<Integer> deathBullets, String dealerAction) {
         if (deathBullets.contains(slotNumber)) {
             System.out.print("Slot number " + slotNumber + " had a live cartridge.");
             if (dealerAction.equalsIgnoreCase(HIMSELF)) {

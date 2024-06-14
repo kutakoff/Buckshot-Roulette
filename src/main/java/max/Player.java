@@ -9,7 +9,7 @@ import static max.Main.*;
 
 public class Player {
 
-    public static boolean checkPlayerTurn(int bulletCount, ArrayList<Integer> deathBullets, int slotNumber, String playerAction) throws InterruptedException {
+    public static boolean checkPlayerTurn(int bulletCount, ArrayList<Integer> deathBullets, String playerAction) throws InterruptedException {
         if (deathBullets.contains(slotNumber)) {
             System.out.print("Slot number " + slotNumber + " had a live cartridge.");
             if (playerAction.equalsIgnoreCase(ME)) {
@@ -34,7 +34,7 @@ public class Player {
             Thread.sleep(1500);
             System.out.printf("\nThere are %d/%d bullets left. ", bulletCount - slotNumber, bulletCount);
             slotNumber++;
-        } while (checkDealerTurn(slotNumber, deathBullets, new Dealer().getDealerAction()));
+        } while (checkDealerTurn(deathBullets, new Dealer().getDealerAction()));
         return true;
     }
 
